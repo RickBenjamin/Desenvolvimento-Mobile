@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jokenpoh/tela2.dart';
 import 'tela1.dart';
 
 void main() {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Tela2(),
+      home: Tela1(),
     );
   }
 }

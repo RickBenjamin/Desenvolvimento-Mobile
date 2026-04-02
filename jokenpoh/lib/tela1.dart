@@ -8,7 +8,6 @@ class Tela1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-
       body: Column(
         children: [
           Container(
@@ -32,32 +31,29 @@ class Tela1 extends StatelessWidget {
               child: Image.asset('asset/images/escolha.png'),
             ),
           ),
-
           const SizedBox(height: 10),
-
           const Text('Escolha do APP'),
-
           const SizedBox(height: 40),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _opcao(context, 'asset/images/pedra.png'),
-              _opcao(context, 'asset/images/papel.png'),
-              _opcao(context, 'asset/images/tesoura.png'),
+              _opcao(context, 'pedra'),
+              _opcao(context, 'papel'),
+              _opcao(context, 'tesoura'),
             ],
           ),
         ],
       ),
     );
   }
-
-  Widget _opcao(BuildContext context, String imagem) {
+  Widget _opcao(BuildContext context, String escolha) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Tela2()),
+          MaterialPageRoute(
+            builder: (context) => Tela2(escolhaJogador: escolha),
+          ),
         );
       },
       child: Container(
@@ -68,7 +64,7 @@ class Tela1 extends StatelessWidget {
           border: Border.all(color: Colors.grey),
         ),
         child: ClipOval(
-          child: Image.asset(imagem),
+          child: Image.asset('asset/images/$escolha.png'),
         ),
       ),
     );
